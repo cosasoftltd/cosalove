@@ -31,9 +31,9 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center p-4">
+    <div className="relative w-full min-h-screen flex items-center justify-center p-4 flex-col gap-20">
       <BackgroundCanvas />
-      
+      <h1 className="z-50 text-4xl text-gold">CosaLove</h1>
       <form onSubmit={handleSubmit(onSubmit)} 
         className="relative z-10 w-full max-w-sm bg-[#0d1626]/60 backdrop-blur-xl border-2 border-[#c5a059]/40 rounded-2xl p-8 space-y-4 text-white shadow-2xl"
       >
