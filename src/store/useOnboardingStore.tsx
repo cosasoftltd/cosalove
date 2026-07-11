@@ -9,6 +9,9 @@ interface CalibrationData {
   // Page 2: Archetype Vault
   bio?:string;
   archetype: string;
+  philosophy?: string; 
+  valueSystem?: string;
+  lifestyle?: string;
   // Page 3: Discovery Calibration
   email: string;
   phone: string;
