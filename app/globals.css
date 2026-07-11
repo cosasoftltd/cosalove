@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Register base variables as color tokens so Tailwind recognizes them as utilities */
+  --color-border: var(--border);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-ring: var(--ring);
+
+  /* Brand Primitives */
+  --color-navy: rgb(var(--navy));
+  --color-navy-light: rgb(var(--navy-light));
+  --color-gold: rgb(var(--gold));
+}
+
+:root {
+  /* --- COSALOVE ROMANTIC SYSTEM --- */
+  --radius: 0.75rem;
+  
+  /* Backgrounds: Creamy warmth */
+  --background: oklch(0.98 0.008 75);
+  --foreground: oklch(0.22 0.015 30);
+  
+  /* Surface: Subtle card depth */
+  --card: oklch(0.96 0.015 75);
+  
+  /* Muted & Border: Softened structural lines */
+  --muted: oklch(0.92 0.01 75);
+  --muted-foreground: oklch(0.50 0.015 30);
+  --border: oklch(0.88 0.015 75);
+  --ring: oklch(0.62 0.14 25 / 0.25);
+
+  /* Brand Primitives (RGB values for dynamic alpha support) */
+  --navy: 25 35 55;
+  --navy-light: 45 55 75;
+  --gold: 190 150 90;
+}
+
+.dark {
+  /* Deep, warm nocturnal charcoal */
+  --background: oklch(0.14 0.02 260);
+  --foreground: oklch(0.95 0.01 75);
+  --card: oklch(0.19 0.02 260);
+  --border: oklch(0.28 0.02 260);
+  --ring: oklch(0.68 0.16 25 / 0.3);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 transition-colors duration-300;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
