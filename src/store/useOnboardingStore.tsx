@@ -7,6 +7,7 @@ interface CalibrationData {
   avatarFile: File | null;
   selectedVibes: string[];
   // Page 2: Archetype Vault
+  bio?:string;
   archetype: string;
   // Page 3: Discovery Calibration
   email: string;
