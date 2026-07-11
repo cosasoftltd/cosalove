@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://159.65.16.198:80/api';
+const API_URL = 'https://api.love.cosasoft.org/';
 
 const api = axios.create({
   baseURL: API_URL,
