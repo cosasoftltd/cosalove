@@ -16,8 +16,8 @@ api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   
   // Exclude auth routes from receiving the Authorization header
-  const isPublicRoute = config.url?.includes('/users/register/') || 
-                        config.url?.includes('/users/login/');
+  const isPublicRoute = config.url?.includes('/api/users/register/') || 
+                        config.url?.includes('/api/users/login/');
 
   if (token && !isPublicRoute) {
     config.headers.Authorization = `Token ${token}`;
