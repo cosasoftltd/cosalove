@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.love.cosasoft.org/';
+// Update this line to include /api/ at the end
+const API_URL = 'https://api.love.cosasoft.org/api/';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -15,9 +16,9 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   
-  // Exclude auth routes from receiving the Authorization header
-  const isPublicRoute = config.url?.includes('/api/users/register/') || 
-                        config.url?.includes('/api/users/login/');
+  // Now these path checks will safely align with your requests
+  const isPublicRoute = config.url?.includes('users/register/') || 
+                        config.url?.includes('users/login/');
 
   if (token && !isPublicRoute) {
     config.headers.Authorization = `Token ${token}`;
@@ -35,7 +36,6 @@ api.interceptors.response.use(
     if (!error.response) {
       console.error("NETWORK ERROR: Server might be down or CORS is blocking the request.");
     } else {
-      // Improved error display
       console.error("API ERROR:", error.response.status, JSON.stringify(error.response.data, null, 2));
     }
     return Promise.reject(error);
